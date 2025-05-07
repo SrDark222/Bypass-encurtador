@@ -14,7 +14,7 @@
 
     body {
       font-family: 'Orbitron', sans-serif;
-      background: #0e0e0e;
+      background: #000000;
       color: #ffffff;
       height: 100vh;
       overflow: hidden;
@@ -27,9 +27,8 @@
 
     h1 {
       font-size: 2.5rem;
-      color: #ffffff;
       margin-bottom: 10px;
-      text-shadow: 0 0 10px #ffffff;
+      text-shadow: 0 0 10px #fff;
     }
 
     p {
@@ -40,26 +39,21 @@
     }
 
     .container {
-      background: linear-gradient(135deg, #ff0000, #ff8800, #ffee00, #00ff88, #0088ff, #aa00ff, #ff0088);
-      background-size: 1200% 1200%;
-      animation: rgbShift 10s ease infinite;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border-radius: 16px;
       padding: 2rem;
       width: 100%;
       max-width: 700px;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
-    }
-
-    @keyframes rgbShift {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+      box-shadow: 0 0 10px #00ffff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     textarea {
       width: 100%;
       height: 120px;
-      background: #0e0e0e;
+      background: #000000;
       border: none;
       color: #ffffff;
       font-size: 14px;
@@ -67,6 +61,7 @@
       border-radius: 10px;
       resize: none;
       outline: none;
+      box-shadow: inset 0 0 10px rgba(0,255,255,0.2);
     }
 
     button {
@@ -76,14 +71,15 @@
       color: #ffffff;
       font-weight: bold;
       font-size: 18px;
-      border: 2px solid #ffffff;
+      border: 2px solid #00ffff;
       border-radius: 10px;
       cursor: pointer;
       transition: 0.3s;
+      box-shadow: 0 0 10px #00ffff80;
     }
 
     button:hover {
-      background: #1a1a1a;
+      background: #111111;
       transform: scale(1.05);
     }
 
