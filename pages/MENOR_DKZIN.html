@@ -2,7 +2,171 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Hub do DK | Sith Style</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Orbitron', sans-serif;
+      background: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+      touch-action: none;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, #ffffff10, transparent 70%);
+      animation: pulse 8s infinite ease-in-out;
+      z-index: 0;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.15; }
+      50% { transform: scale(1.2); opacity: 0.25; }
+    }
+
+    @keyframes rgbBorder {
+      0% { border-color: red; box-shadow: 0 0 10px red; }
+      25% { border-color: white; box-shadow: 0 0 10px white; }
+      50% { border-color: blue; box-shadow: 0 0 10px blue; }
+      75% { border-color: black; box-shadow: 0 0 10px black; }
+      100% { border-color: red; box-shadow: 0 0 10px red; }
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      text-shadow: 0 0 10px #ff0000aa;
+      z-index: 2;
+      animation: rgbBorder 6s infinite;
+    }
+
+    p {
+      color: #cccccc;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .container {
+      position: relative;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 14px;
+      padding: 1.5rem;
+      width: 100%;
+      max-width: 500px;
+      border: 2px solid red;
+      animation: rgbBorder 6s infinite;
+      z-index: 2;
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: -100%;
+      width: 300%;
+      height: 300%;
+      background: linear-gradient(135deg, transparent, #ff000010, transparent);
+      animation: moveRedLight 10s linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes moveRedLight {
+      0% { transform: rotate(0deg) translateX(0); }
+      100% { transform: rotate(360deg) translateX(200px); }
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      background: #000000cc;
+      border: none;
+      color: #ffffff;
+      font-size: 13px;
+      padding: 0.8rem;
+      border-radius: 8px;
+      resize: none;
+      outline: none;
+      box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.1);
+      z-index: 2;
+      position: relative;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px 20px;
+      background: #000000;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 16px;
+      border: 2px solid red;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      animation: rgbBorder 6s infinite;
+      z-index: 2;
+    }
+
+    button:hover {
+      background: #111111;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.7rem; }
+      .container { padding: 1rem; }
+      textarea { font-size: 12px; }
+      button { font-size: 15px; padding: 10px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Hub do DK</h1>
+  <p>Execute no seu executor favorito com apenas um clique!</p>
+
+  <div class="container">
+    <textarea id="code" readonly>loadstring(game:HttpGet("https://raw.githubusercontent.com/SEUUSER/REPO/main/hub.lua"))()</textarea>
+    <button onclick="copyCode()">Copiar Loadstring</button>
+  </div>
+
+  <script>
+    function copyCode() {
+      const code = document.getElementById("code");
+      navigator.clipboard.writeText(code.value).then(() => {
+        alert("Loadstring copiado com sucesso, DK!");
+      }).catch(() => {
+        alert("Erro ao copiar!");
+      });
+    }
+
+    document.addEventListener('gesturestart', function(e) {
+      e.preventDefault();
+    });
+  </script>
+</body>
+</html>, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Hub do DK | Sith Style</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet"/>
   <style>
