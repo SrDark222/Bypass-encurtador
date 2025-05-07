@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hub do DK | Script</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0d0d0d;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    textarea {
+      width: 100%;
+      max-width: 600px;
+      height: 80px;
+      font-size: 14px;
+      background: #1a1a1a;
+      color: #00ff99;
+      border: none;
+      padding: 1rem;
+      resize: none;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #00ff99;
+      color: #000;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #00cc77;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hub do DK</h1>
+  <p>Script pronto pra copiar e colar no executor</p>
+  <textarea id="code" readonly>loadstring(game:HttpGet("https://raw.githubusercontent.com/SEUUSER/REPO/main/hub.lua"))()</textarea>
+  <br />
+  <button onclick="copyCode()">Copiar Loadstring</button>
+
+  <script>
+    function copyCode() {
+      const code = document.getElementById("code")
+      code.select()
+      code.setSelectionRange(0, 99999)
+      document.execCommand("copy")
+      alert("Loadstring copiado com sucesso!")
+    }
+  </script>
+</body>
+</html>
