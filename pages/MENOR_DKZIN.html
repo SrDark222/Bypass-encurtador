@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Hub do DK | Sith Style</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.37.5/tsparticles.min.js"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -22,29 +21,29 @@
       padding: 20px;
       overflow: hidden;
       position: relative;
+      z-index: 1;
     }
 
     #tsparticles {
       position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       z-index: 0;
     }
 
-    h1, p, .container {
-      z-index: 1;
-      position: relative;
-    }
-
     h1 {
       font-size: 2rem;
       margin-bottom: 0.5rem;
-      text-shadow: 0 0 10px red;
-      background: linear-gradient(270deg, red, white, blue, black, red);
+      text-shadow: 0 0 15px red;
+      background: linear-gradient(270deg, red, white, red, black, red);
       background-size: 800% 800%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: gradientEffect 10s ease infinite;
+      z-index: 2;
+      position: relative;
     }
 
     p {
@@ -52,10 +51,12 @@
       color: #ccc;
       margin-bottom: 1.5rem;
       text-align: center;
+      z-index: 2;
+      position: relative;
     }
 
     .container {
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.75);
       backdrop-filter: blur(12px);
       border-radius: 14px;
       padding: 1.5rem;
@@ -63,6 +64,8 @@
       max-width: 480px;
       border: 2px solid transparent;
       animation: borderGlow 10s ease infinite;
+      z-index: 2;
+      position: relative;
     }
 
     textarea {
@@ -76,7 +79,7 @@
       border-radius: 8px;
       resize: none;
       outline: none;
-      box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.1);
+      box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.2);
     }
 
     button {
@@ -107,8 +110,8 @@
     @keyframes borderGlow {
       0% { border-color: red; box-shadow: 0 0 8px red; }
       25% { border-color: white; box-shadow: 0 0 8px white; }
-      50% { border-color: blue; box-shadow: 0 0 8px blue; }
-      75% { border-color: black; box-shadow: 0 0 8px black; }
+      50% { border-color: #990000; box-shadow: 0 0 8px #990000; }
+      75% { border-color: #ff3333; box-shadow: 0 0 8px #ff3333; }
       100% { border-color: red; box-shadow: 0 0 8px red; }
     }
 
@@ -121,13 +124,40 @@
 </head>
 <body>
   <div id="tsparticles"></div>
-
   <h1>TCC HUB</h1>
-  <p>Script Feito Por dk!</p>
+  <p>Script Feito Por DK!</p>
   <div class="container">
     <textarea id="code" readonly>loadstring(game:HttpGet("https://raw.githubusercontent.com/SEUUSER/REPO/main/hub.lua"))()</textarea>
     <button onclick="copyCode()">Copiar Loadstring</button>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.37.5"></script>
+  <script>
+    tsParticles.load("tsparticles", {
+      fpsLimit: 60,
+      background: { color: { value: "transparent" } },
+      particles: {
+        number: {
+          value: 20,
+          density: { enable: true, area: 800 }
+        },
+        color: { value: "#ff0000" },
+        shape: {
+          type: "polygon",
+          polygon: { sides: 3 }
+        },
+        opacity: { value: 0.6, random: true },
+        size: { value: 4, random: true },
+        move: {
+          enable: true,
+          speed: 1.5,
+          direction: "none",
+          outModes: { default: "bounce" }
+        }
+      },
+      detectRetina: true
+    });
+  </script>
 
   <script>
     function copyCode() {
@@ -138,42 +168,6 @@
         alert("Erro ao copiar!");
       });
     }
-
-    tsParticles.load("tsparticles", {
-      fullScreen: { enable: false },
-      background: { color: "transparent" },
-      particles: {
-        number: { value: 60 },
-        color: { value: "#ffffff" },
-        shape: { type: "polygon", polygon: { nb_sides: 5 } },
-        opacity: { value: 0.6 },
-        size: { value: 3 },
-        move: {
-          enable: true,
-          speed: 1.2,
-          direction: "none",
-          out_mode: "bounce"
-        },
-        links: {
-          enable: true,
-          distance: 130,
-          color: "#ffffff",
-          opacity: 0.3,
-          width: 1
-        }
-      },
-      interactivity: {
-        events: {
-          onhover: { enable: true, mode: "repulse" },
-          onclick: { enable: true, mode: "push" }
-        },
-        modes: {
-          repulse: { distance: 100 },
-          push: { quantity: 4 }
-        }
-      },
-      retina_detect: true
-    });
   </script>
 </body>
 </html>
